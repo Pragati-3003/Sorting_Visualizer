@@ -1,5 +1,8 @@
 *.o
 *.exe
+.src/
+.source/
+.lib/
 /build/
 bin/
 *.log
@@ -8,3 +11,4 @@ bin/
 *.a
 *.dll
 Thumbs.db
+*.ttf
