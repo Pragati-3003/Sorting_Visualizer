@@ -12,3 +12,4 @@ bin/
 *.dll
 Thumbs.db
 *.ttf
+*.TTF
