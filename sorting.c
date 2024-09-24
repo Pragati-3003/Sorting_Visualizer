@@ -12,6 +12,10 @@
 void selectionSort(SDL_Renderer *renderer, int *bars);
 void bubbleSort(SDL_Renderer *renderer, int *bars);
 void insertionSort(SDL_Renderer *renderer, int *bars);
+void quickSort(SDL_Renderer *renderer, int *bars, int low, int high);
+void heapSort(SDL_Renderer *renderer, int *bars);
+void radixSort(SDL_Renderer *renderer, int *bars);
+void mergeSort(SDL_Renderer *renderer, int *bars, int low, int high);
 void drawBars(SDL_Renderer *renderer, int *bars, int current, int compareIndex);
 void generateRandomBars(int *bars);
 void renderText(SDL_Renderer *renderer, TTF_Font *font, const char *text, int x, int y, SDL_Color color);
@@ -263,6 +267,71 @@ void radixSort(SDL_Renderer *renderer, int *bars)
     }
 }
 
+// Merge function
+void merge(SDL_Renderer *renderer, int *bars, int low, int mid, int high)
+{
+    int n1 = mid - low + 1;
+    int n2 = high - mid;
+
+    int left[n1], right[n2];
+
+    for (int i = 0; i < n1; i++)
+        left[i] = bars[low + i];
+    for (int i = 0; i < n2; i++)
+        right[i] = bars[mid + 1 + i];
+
+    int i = 0, j = 0, k = low;
+
+    while (i < n1 && j < n2)
+    {
+        if (left[i] <= right[j])
+        {
+            bars[k] = left[i];
+            i++;
+        }
+        else
+        {
+            bars[k] = right[j];
+            j++;
+        }
+        drawBars(renderer, bars, k, -1);
+        SDL_Delay(DELAY);
+        k++;
+    }
+
+    while (i < n1)
+    {
+        bars[k] = left[i];
+        drawBars(renderer, bars, k, -1);
+        SDL_Delay(DELAY);
+        i++;
+        k++;
+    }
+
+    while (j < n2)
+    {
+        bars[k] = right[j];
+        drawBars(renderer, bars, k, -1);
+        SDL_Delay(DELAY);
+        j++;
+        k++;
+    }
+}
+
+// Merge sort function
+void mergeSort(SDL_Renderer *renderer, int *bars, int low, int high)
+{
+    if (low < high)
+    {
+        int mid = low + (high - low) / 2;
+
+        mergeSort(renderer, bars, low, mid);
+        mergeSort(renderer, bars, mid + 1, high);
+
+        merge(renderer, bars, low, mid, high);
+    }
+}
+
 int main(int argc, char *argv[])
 {
     if (SDL_Init(SDL_INIT_VIDEO) != 0)
@@ -347,6 +416,9 @@ int main(int argc, char *argv[])
                 case SDLK_6:
                     sortAlgorithm = 6;
                     break;
+                case SDLK_7:
+                    sortAlgorithm = 7;
+                    break;
                 case SDLK_r:
                     generateRandomBars(bars);
                     break;
@@ -387,13 +459,18 @@ int main(int argc, char *argv[])
             radixSort(renderer, bars);
             sortAlgorithm = 0;
         }
+         else if (sortAlgorithm == 7)
+        {
+            mergeSort(renderer, bars, 0, NUM_BARS - 1);
+            sortAlgorithm = 0;
+        }
 
         drawBars(renderer, bars, -1, -1);
 
         SDL_Color textColor = {255, 255, 255, 255};
         renderText(renderer, font, "Press 1 for Selection Sort, 2 for Bubble Sort, 3 for Insertion Sort , 4 for Quick Sort ",
                    10, 10, textColor);
-        renderText(renderer, font, "Press 5 for Heap sort, 6 for Radix sort , R to reset, ESC to exit ",
+        renderText(renderer, font, "Press 5 for Heap sort, 6 for Radix sort , 7 for Merge Sort,  R to reset, ESC to exit ",
                    10, 30, textColor);
         SDL_RenderPresent(renderer);
         SDL_Delay(50);
