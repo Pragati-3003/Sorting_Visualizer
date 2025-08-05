@@ -1,189 +1,115 @@
-# 🎯 Sorting Algorithm Visualizer
+<!-- Sorting Algorithm Visualizer -->
 
-![Sorting Visualizer Demo](https://img.shields.io/badge/Platform-Windows-blue) ![Language](https://img.shields.io/badge/Language-C-brightgreen) ![Graphics](https://img.shields.io/badge/Graphics-SDL2-orange) ![License](https://img.shields.io/badge/License-MIT-yellow)
+<h1 align="center">Sorting Algorithm Visualizer</h1>
 
-A real-time visual representation of popular sorting algorithms built in C using SDL2 graphics library. Watch as different sorting algorithms organize data step-by-step with color-coded animations, making abstract computer science concepts concrete and observable.
+<p align="center">
+  A real-time C-based sorting algorithm visualizer using SDL2 graphics library. Observe how sorting algorithms work through animated, color-coded bars that visually represent the sorting steps.
+</p>
 
-## 📺 Demo Video
+---
 
-```
-🎬 Demo Video Preview
-https://drive.google.com/file/d/1DqZNHtaHiXKhWgLlzPloOBe_3NsuV_xJ/view?usp=drive_link
-```
+## 🚀 Features
 
-**What you'll see in the demo:**
-- Real-time visualization of 6 different sorting algorithms
-- Color-coded bars (Red: current, Green: comparison, White: others)
-- Interactive keyboard controls to switch between algorithms
-- Performance differences between O(n²) and O(n log n) algorithms
+- **6 Sorting Algorithms**: Selection Sort, Bubble Sort, Insertion Sort, Quick Sort, Heap Sort, Merge Sort
+- **Real-time Visualization**: Animated bars show each sorting step
+- **Color Coding**:
+  - 🔴 Red: Current element
+  - 🟢 Green: Elements being compared
+  - ⚪ White: Idle elements
+- **Interactive Controls**: Use keys to switch algorithms or reset
+- **Cross-platform**: Built using SDL2 for Windows, Linux, and macOS
+- **Educational Tool**: Great for understanding algorithm performance
 
-## 🌟 Features
+---
 
-- **6 Sorting Algorithms**: Selection Sort, Bubble Sort, Insertion Sort, Quick Sort, Heap Sort, and Merge Sort
-- **Real-time Visualization**: Watch algorithms sort data with animated bars
-- **Color-coded Animation**: 
-  - 🔴 **Red**: Current element being processed
-  - 🟢 **Green**: Element being compared
-  - ⚪ **White**: Other elements
-- **Interactive Controls**: Switch between algorithms with keyboard shortcuts
-- **Random Data Generation**: Generate new random datasets instantly
-- **Educational Tool**: Perfect for learning algorithm behavior and performance
-- **Cross-platform**: Built with SDL2 for Windows, Linux, and macOS compatibility
+## 🎥 Demo
 
+▶️ [Watch Demo Video](https://drive.google.com/file/d/1DqZNHtaHiXKhWgLlzPloOBe_3NsuV_xJ/view?usp=drive_link)
 
+---
 
-### Installation & Running
+## 🛠️ Technologies Used
 
-1. **Clone the repository**
+- **Language**: C
+- **Graphics**: SDL2 (Simple DirectMedia Layer)
+- **Text Rendering**: SDL2_TTF
+- **Build System**: Makefile / GCC
+
+---
+
+## 📦 Getting Started
+
+Follow these steps to set up and run the visualizer on your system:
+
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/Pragati-3003/Sorting_Visualizer.git
    cd Sorting_Visualizer
    ```
 
-2. **Build the project**
-   
+2. **Build the project:**
+
    **Option A: Using Makefile**
    ```bash
    make
    ```
-   
-   **Option B: Manual compilation**
+
+   **Option B: Manual Compilation**
    ```bash
    gcc -o sorting.exe sorting.c -Isrc/include -Lsrc/lib -lSDL2 -lSDL2_ttf -lSDL2main
    ```
 
-3. **Run the visualizer**
+3. **Run the application:**
    ```bash
-   .\sorting.exe
+   ./sorting.exe
    ```
-   Or simply double-click `sorting.exe`
+   Or double-click on `sorting.exe` file (Windows)
 
-`
+---
 
-## 🎮 Controls & Usage
+## 🎮 Controls
 
-| Key | Action | Algorithm |
-|-----|--------|-----------|
-| `1` | Execute Selection Sort | O(n²) - Simple selection-based sorting |
-| `2` | Execute Bubble Sort | O(n²) - Adjacent element swapping |
-| `3` | Execute Insertion Sort | O(n²) - Insert elements in sorted position |
-| `4` | Execute Quick Sort | O(n log n) - Divide and conquer approach |
-| `5` | Execute Heap Sort | O(n log n) - Binary heap-based sorting |
-| `6` | Execute Merge Sort | O(n log n) - Merge sorted subarrays |
-| `R` | Reset with new random data | Generate fresh dataset |
-| `ESC` | Exit program | Close the application |
+| Key   | Action                  | Description                               |
+|-------|-------------------------|-------------------------------------------|
+| `1`   | Selection Sort          | O(n²) selection-based algorithm            |
+| `2`   | Bubble Sort             | O(n²) adjacent swaps                       |
+| `3`   | Insertion Sort          | O(n²) incremental sorted insertion         |
+| `4`   | Quick Sort              | O(n log n) pivot partitioning              |
+| `5`   | Heap Sort               | O(n log n) heap-based sorting              |
+| `6`   | Merge Sort              | O(n log n) recursive merge strategy        |
+| `R`   | Reset                   | Generate new random dataset                |
+| `ESC` | Exit                    | Close the application                      |
 
+---
 
-## 💻 Technology Stack
-
-### Core Technologies
-
-- **Programming Language**: C
-- **Graphics Library**: SDL2 (Simple DirectMedia Layer)
-- **Font Rendering**: SDL2_TTF
-- **Build System**: Makefile
-- **Platform**: Windows (with cross-platform SDL2 base)
-
-### Technical Architecture
-
-```
-┌─────────────────────────────────────────┐
-│              User Interface             │
-│  (Keyboard Input + Visual Instructions) │
-└─────────────────┬───────────────────────┘
-                  │
-┌─────────────────▼───────────────────────┐
-│           Event Handler                 │
-│    (SDL Event Loop + Key Mapping)      │
-└─────────────────┬───────────────────────┘
-                  │
-┌─────────────────▼───────────────────────┐
-│        Algorithm Controller            │
-│   (Sorting Algorithm Selection)        │
-└─────────────────┬───────────────────────┘
-                  │
-┌─────────────────▼───────────────────────┐
-│       Visualization Engine             │
-│  (SDL2 Rendering + Animation)          │
-└─────────────────────────────────────────┘
-```
-
-## 📊 Implemented Algorithms
-
-### O(n²) Algorithms - Quadratic Time Complexity
-
-#### 1. Selection Sort
-- **Time Complexity**: O(n²)
-- **Space Complexity**: O(1)
-- **Stability**: Not stable
-- **Description**: Finds the minimum element and places it at the beginning repeatedly
-- **Best Use**: Small datasets, educational purposes
-
-#### 2. Bubble Sort
-- **Time Complexity**: O(n²)
-- **Space Complexity**: O(1)
-- **Stability**: Stable
-- **Description**: Repeatedly swaps adjacent elements if they're in wrong order
-- **Best Use**: Educational demonstration of basic sorting
-
-#### 3. Insertion Sort
-- **Time Complexity**: O(n²)
-- **Space Complexity**: O(1)
-- **Stability**: Stable
-- **Description**: Builds the sorted array one element at a time
-- **Best Use**: Small datasets, nearly sorted data
-
-### O(n log n) Algorithms - Linearithmic Time Complexity
-
-#### 4. Quick Sort
-- **Time Complexity**: O(n log n) average, O(n²) worst case
-- **Space Complexity**: O(log n)
-- **Stability**: Not stable
-- **Description**: Divide-and-conquer algorithm using pivot partitioning
-- **Best Use**: General-purpose sorting, large datasets
-
-#### 5. Heap Sort
-- **Time Complexity**: O(n log n)
-- **Space Complexity**: O(1)
-- **Stability**: Not stable
-- **Description**: Uses binary heap data structure to sort elements
-- **Best Use**: When consistent O(n log n) performance is needed
-
-#### 6. Merge Sort
-- **Time Complexity**: O(n log n)
-- **Space Complexity**: O(n)
-- **Stability**: Stable
-- **Description**: Divide-and-conquer algorithm that merges sorted subarrays
-- **Best Use**: When stability is required, linked lists
-
-## 🏗️ Project Structure
+## 📁 Project Structure
 
 ```
 Sorting_Visualizer/
-├── 📄 sorting.c              # Main source file with all algorithms
-├── ⚙️ sorting.exe            # Compiled executable
-├── 🔧 makefile              # Build configuration
-├── 📖 README.md             # Project documentation
-├── ❓ INTERVIEW_QA.md        # Interview questions and answers
-├── 🔤 *.ttf                 # Arial font files
-├── 📚 *.dll                 # SDL2 runtime libraries
-├── 📁 include/              # SDL2 header files
+├── sorting.c             # Main source file
+├── sorting.exe           # Compiled executable
+├── makefile              # Build configuration
+├── README.md             # Project documentation
+├── INTERVIEW_QA.md       # Interview preparation Q&A
+├── *.ttf                 # Font files for SDL2_TTF
+├── *.dll                 # SDL2 runtime DLLs
+├── include/              # SDL2 headers
 │   └── SDL2/
-├── 📁 lib/                  # SDL2 static libraries
-├── 📁 src/                  # SDL2 development files
+├── lib/                  # SDL2 libraries
+├── src/
 │   ├── include/
 │   └── lib/
-└── 📁 source/               # Additional SDL2 resources
+└── source/               # Additional source files
 ```
 
+---
 
+## 🤝 Contributing
+
+Feel free to contribute to the project. Fork the repository, create a new branch, and submit a pull request with your enhancements.
+
+---
 
 ## 📝 License
 
-This project is open source and available under the **MIT License**.
-
-```
-MIT License
-
-Copyright (c) 2024 Pragati-3003
-
+This project is licensed under the MIT License © 2024 Pragati Jain.
