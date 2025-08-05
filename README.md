@@ -3,22 +3,23 @@
 <h1 align="center">Sorting Algorithm Visualizer</h1>
 
 <p align="center">
-  A real-time C-based sorting algorithm visualizer using SDL2 graphics library. Observe how sorting algorithms work through animated, color-coded bars that visually represent the sorting steps.
+  A real-time C-based sorting algorithm visualizer using SDL2 graphics library.<br/>
+  Observe how sorting algorithms work through animated, color-coded bars that visually represent the sorting steps.
 </p>
 
 ---
 
 ## 🚀 Features
 
-- **6 Sorting Algorithms**: Selection Sort, Bubble Sort, Insertion Sort, Quick Sort, Heap Sort, Merge Sort
-- **Real-time Visualization**: Animated bars show each sorting step
-- **Color Coding**:
+- 🎯 **6 Sorting Algorithms**: Selection Sort, Bubble Sort, Insertion Sort, Quick Sort, Heap Sort, Merge Sort  
+- 📊 **Real-time Visualization**: Animated bars show each sorting step  
+- 🎨 **Color Coding**:
   - 🔴 Red: Current element
   - 🟢 Green: Elements being compared
   - ⚪ White: Idle elements
-- **Interactive Controls**: Use keys to switch algorithms or reset
-- **Cross-platform**: Built using SDL2 for Windows, Linux, and macOS
-- **Educational Tool**: Great for understanding algorithm performance
+- 🎮 **Interactive Controls**: Use keys to switch algorithms or reset  
+- 🧠 **Educational Tool**: Understand time complexities visually  
+- 🧩 **Cross-platform**: Built using SDL2 for Windows, Linux, and macOS
 
 ---
 
@@ -30,22 +31,20 @@
 
 ## 🛠️ Technologies Used
 
-- **Language**: C
-- **Graphics**: SDL2 (Simple DirectMedia Layer)
-- **Text Rendering**: SDL2_TTF
+- **Language**: C  
+- **Graphics**: SDL2 (Simple DirectMedia Layer)  
+- **Text Rendering**: SDL2_TTF  
 - **Build System**: Makefile / GCC
 
 ---
 
 ## 📦 Getting Started
 
-Follow these steps to set up and run the visualizer on your system:
-
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/Pragati-3003/Sorting_Visualizer.git
    cd Sorting_Visualizer
-   ```
+
 
 2. **Build the project:**
 
